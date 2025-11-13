@@ -74,7 +74,7 @@ residue_selector = ~(batch_preparer.get_boundary_token_mask(batch["input_ids"]))
 last_sequence_residue_selector = last_sequence_selector & residue_selector
 
 # Will yield embeddings for ["AAAAA?C", "MFCC?SEF"] while throwing away embeddings for the boundary tokens
-# for homologous sequences in the second instance. Can do similar for logits.
+# and for homologous sequences in the second instance. Can do similar for logits.
 last_sequence_embeddings = [embeddings[i, last_sequence_residue_selector[i]] for i in range(embeddings.shape[0])]
 ```
 
